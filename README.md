@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🎓 School Management System
 
 A complete **School Management System** designed to manage students, employees, fees, attendance, salaries, and academic operations efficiently.  
@@ -122,28 +121,34 @@ Follow the steps below to set up the project locally.
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/Sroun-Pisey/School_Managment_System.git
+```
 cd School_Managment_System
 
 2. Install PHP dependencies
+```bash
 composer install
-
+```
 3. Environment configuration
+```bash
 cp .env.example .env
 php artisan key:generate
-
+```
 
 Edit the .env file and configure your database credentials.
 
 4. Run database migrations
+```bash
 php artisan migrate
-
+```
 5. Install frontend dependencies
+```bash
 npm install
 npm run dev
-
+```
 6. Start the development server
+```bash
 php artisan serve
-
+```
 
 The application will be available at:
 http://127.0.0.1:8000
