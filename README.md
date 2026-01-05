@@ -1,71 +1,186 @@
 <<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎓 School Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A complete **School Management System** designed to manage students, employees, fees, attendance, salaries, and academic operations efficiently.  
+Built with a **structured relational database** to ensure accuracy, scalability, and easy reporting.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 👤 User Management
+- Role-based users: **Admin, Teacher, Student, Employee**
+- Secure authentication and profile management
+- Personal information, roles, and status tracking
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🎓 Student Management
+- Student enrollment and assignment by:
+  - Academic year
+  - Class
+  - Subject
+  - Study time (Morning / Afternoon)
+- Student promotion by academic year
+- Fee category assignment per student
 
-## Learning Laravel
+### 📚 Academic Management
+- Manage:
+  - Classes
+  - Subjects
+  - Study times
+  - Academic years
+- Flexible structure for multi-year school operations
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 💰 Fee Management
+- Define multiple fee categories (Tuition, Exam, Library, etc.)
+- Set fee amounts by class
+- Student fee payment tracking
+- Student-specific fee discounts
+- Accurate fee calculation and reporting
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 🧑‍💼 Employee Management
+- Employee attendance tracking
+- Salary management with increment history
+- Employee leave management
+- Salary payment records
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🗄️ Database Structure
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Core Tables
+| Table | Description |
+|------|------------|
+| users | Stores all system users |
+| assign_student | Assigns students to class, year, subject |
+| classes | Class information |
+| subjects | Subject list |
+| years | Academic years |
+| study_time | Study shifts |
 
-### Premium Partners
+### Fee Management Tables
+| Table | Description |
+|------|------------|
+| fee_categories | Types of fees |
+| fee_category_amounts | Fee amount per class |
+| account_student_fees | Student payment records |
+| discount_students | Student fee discounts |
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Employee Tables
+| Table | Description |
+|------|------------|
+| employee_attendance | Daily attendance |
+| employee_salary_log | Salary history |
+| employee_leave | Leave records |
+| account_employee | Salary payments |
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🔗 Relationships Overview
+- One **user** can be a student or an employee
+- Students are assigned to classes via `assign_student`
+- Fees depend on **class + fee category**
+- Employees have attendance, salary logs, and leave records
+- Academic year is referenced across student and fee records
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🛠️ Tech Stack
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Laravel (PHP)
+- **Database:** MySQL
+- **Design:** ERD created with DrawSQL
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📊 Use Cases
+- Student enrollment & academic tracking
+- Fee calculation with discount support
+- Employee payroll & attendance management
+- Year-based academic and financial reports
+- Role-based access control
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
+## 📌 Future Improvements
+- Parent portal
+- Online assignments & exams
+- Automated report cards
+- Notifications (SMS / Email)
+- REST API integration
+
+---
+
+## 🤝 Contribution
+Contributions, suggestions, and improvements are welcome.  
+Feel free to fork this repository and submit a pull request.
+
+
+## ⚙️ Installation & Setup
+
+Follow the steps below to set up the project locally.
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Sroun-Pisey/School_Managment_System.git
+cd School_Managment_System
+
+2. Install PHP dependencies
+composer install
+
+3. Environment configuration
+cp .env.example .env
+php artisan key:generate
+
+
+Edit the .env file and configure your database credentials.
+
+4. Run database migrations
+php artisan migrate
+
+5. Install frontend dependencies
+npm install
+npm run dev
+
+6. Start the development server
+php artisan serve
+
+
+The application will be available at:
+http://127.0.0.1:8000
+
+
+---
+
+## 📘 Explanation (For Better Understanding)
+
+### 1️⃣ Clone the project from GitHub
+- Download the project to your local machine
+
+### 2️⃣ Install PHP dependencies
+- Install Laravel packages and generate the `vendor/` directory
+
+### 3️⃣ Environment setup
+- Copy `.env.example` to `.env`
+- Generate the application key (required)
+
+### 4️⃣ Database configuration
+- Create a database using phpMyAdmin
+- Update `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` in the `.env` file
+- Run database migrations using `php artisan migrate`
+
+### 5️⃣ Install frontend dependencies
+- Install frontend libraries (Vite, Tailwind CSS, JavaScript)
+
+### 6️⃣ Run the application
+- Start the development server and access the project in your browser
+
+---
+
+## ⭐ Optional (Professional Touch)
+
+You may add the following section if your project includes database seeders:
+
+
 # School_Managment_System
 School Management System with Students, Fees, and Employee Management
 >>>>>>> e9f4e99fe5ff239c6d93ae43f9fab8b5b7ca1a9e
